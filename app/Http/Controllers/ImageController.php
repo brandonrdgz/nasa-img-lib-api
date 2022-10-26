@@ -44,8 +44,8 @@ class ImageController extends Controller
             'title' => $item['data'][0]['title'],
             'location' => $item['data'][0]['location'] ?? '',
             'description' => $item['data'][0]['description'] ?? '',
-            'imageUrl' => $item['links'][0]['href'],
-            'imageGallery' => $this->getImageGalleryList($item['data'][0]['nasa_id'])
+            'image_url' => $item['links'][0]['href'],
+            'image_gallery' => $this->getImageGalleryList($item['data'][0]['nasa_id'])
         ];
     }
 
@@ -58,8 +58,8 @@ class ImageController extends Controller
             array_push(
                 $imageGalleryList,
                 [
-                    'masterImageId' => $imageId,
-                    'imageUrl' => $item['href']
+                    'master_image_id' => $imageId,
+                    'image_url' => $item['href']
                 ]
             );
         }
