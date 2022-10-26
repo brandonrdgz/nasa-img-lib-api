@@ -55,6 +55,10 @@ class ImageController extends Controller
         $imageGalleryList = [];
 
         foreach($items as $item) {
+            if(preg_match("/(\.jpg)|(\.png)/", $item['href']) != 1) {
+                continue;
+            }
+
             array_push(
                 $imageGalleryList,
                 [
