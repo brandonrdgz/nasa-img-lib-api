@@ -58,7 +58,7 @@ class ImageController extends Controller
             array_push(
                 $imageGalleryList,
                 [
-                    'masterImageUrl' => $imageId,
+                    'masterImageId' => $imageId,
                     'imageUrl' => $item['href']
                 ]
             );
