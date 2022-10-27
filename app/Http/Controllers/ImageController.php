@@ -44,7 +44,7 @@ class ImageController extends Controller
             'title' => $item['data'][0]['title'],
             'location' => $item['data'][0]['location'] ?? 'Unknown',
             'description' => $item['data'][0]['description'],
-            'image_url' => $item['links'][0]['href'],
+            'image_url' => $this->replaceHttpWithHttpsInUrl($item['links'][0]['href']),
             'image_gallery' => $this->getImageGalleryList($item['data'][0]['nasa_id'])
         ];
     }
@@ -63,12 +63,16 @@ class ImageController extends Controller
                 $imageGalleryList,
                 [
                     'master_image_id' => $imageId,
-                    'image_url' => $item['href']
+                    'image_url' => $this->replaceHttpWithHttpsInUrl($item['href'])
                 ]
             );
         }
 
         return $imageGalleryList;
+    }
+
+    private function replaceHttpWithHttpsInUrl(string $url) {
+        return str_replace('http://', 'https://', $url);
     }
 
     /* public function index()
