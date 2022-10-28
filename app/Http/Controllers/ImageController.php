@@ -12,6 +12,7 @@ class ImageController extends Controller
     private String $baseUrl = "https://images-api.nasa.gov";
 
     public function index() {
+        sdfs;
         $imagesResponse = Http::get($this->baseUrl . '/search?q=""')->json();
         $items = $imagesResponse['collection']['items'];
         $images = [];
